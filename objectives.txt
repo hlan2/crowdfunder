@@ -7,6 +7,21 @@ As a Project Owner, I want the ability to set funding rewards with a description
 As a Backer, I want to be able to back a project at a certain reward
 should be able to click on a reward and have it submitted with no page refresh
 once submitted, upon success, the amount raised should update
+
+TASK LIST
+
+
+2. Create interface for setting goal, funding period, funding rewards.
+3. Create association to back project at a reward level
+
+IN PROGRESS
+
+1. Create project, reward, users and associations
+Define in the controller:
+	- create, index, udpate
+
+DONE
+
 Iteration 2
 
 As a Project Owner, I want to see how many days are left before my project is done
