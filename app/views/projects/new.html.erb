@@ -1,0 +1,19 @@
+<%= form_for @project do |f| %>
+ 	<div class="form group">
+ 		<%= f.label :name%>
+ 		<%= f.text_field :name%>
+ 	<div class="form group">
+ 		<%= f.label :description%>
+ 		<%= f.text_field :description%>
+ 	<div class="form group">
+ 		<%= f.label :start_at%>
+ 		<%= f.date_select :start_at%>
+	<div class="form group">
+ 		<%= f.label :end_at%>
+ 		<%= f.date_select :end_at%>
+ 	<div class="form group">
+ 		<%= f.label :funding_goal%>
+ 		<%= f.number_field :funding_goal%>
+ 	<div class="actions"><%= f.submit %></div>
+ <%end%>
+ 	
