@@ -1,19 +1,34 @@
 <%= form_for @project do |f| %>
  	<div class="form group">
  		<%= f.label :name%>
- 		<%= f.text_field :name%>
+ 		<%= f.text_field :name %>
  	<div class="form group">
- 		<%= f.label :description%>
- 		<%= f.text_field :description%>
+ 		<%= f.label :description %>
+ 		<%= f.text_field :description %>
  	<div class="form group">
- 		<%= f.label :start_at%>
- 		<%= f.date_select :start_at%>
+ 		<%= f.label :start_at %>
+ 		<%= f.date_select :start_at %>
 	<div class="form group">
- 		<%= f.label :end_at%>
- 		<%= f.date_select :end_at%>
+ 		<%= f.label :end_at %>
+ 		<%= f.date_select :end_at %>
  	<div class="form group">
- 		<%= f.label :funding_goal%>
- 		<%= f.number_field :funding_goal%>
+ 		<%= f.label :funding_goal %>
+ 		<%= f.number_field :funding_goal %>
+	</div>
+
+	<h4>Rewards</h4>
+	<%= f.fields_for :rewards do |rewards_form| %>
+		<div class="form group">
+	 		<%= rewards_form.label :description %>
+	 		<%= rewards_form.text_area :description %>
+		</div>
+		<div class="form group">
+	 		<%= rewards_form.label :backer_limit %>
+	 		<%= rewards_form.number_field :backer_limit %>
+		</div>
+		
+	<% end %>
+
  	<div class="actions"><%= f.submit %></div>
  <%end%>
  	

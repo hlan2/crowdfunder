@@ -1,4 +1,4 @@
 <h1> Projects Header Page </h1>
-<%= @projects.each do |project| %>
-	<%= project.name %>
+<% @projects.each do |project| %>
+	<%= link_to project.name, project_path(project) %>
 <% end %>
