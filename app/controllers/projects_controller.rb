@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find(params[:id])
+		@pledge = Pledge.new
 	end
 
 	def create
