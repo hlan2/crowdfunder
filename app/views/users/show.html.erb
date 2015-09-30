@@ -1,6 +1,6 @@
 <%= link_to "Back to Crowdfunder", projects_path %>
 
-<% current_user.rewards.each do |reward| %>
+<% @user.rewards.each do |reward| %>
 	<h4>Rewards for User </h4>
 	<%= reward.project.name %>
 	<%= reward.description %>
