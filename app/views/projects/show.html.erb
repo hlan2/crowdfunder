@@ -1,3 +1,12 @@
-<div>
+<h1>All Projects</h1>
+	
 	<%= @project.name %>
-</div>
+	<%= @project.description %>
+	<%= @project.start_at %>
+	<%= @project.end_at %>
+	<% @project.rewards.each do |reward| %>
+		<%= reward.name %>
+		<%= reward.description %>
+		<%= reward.backer_limit %>
+		<%= button_to "Pledge", reward_pledges_path(reward) %>
+	<% end %>
