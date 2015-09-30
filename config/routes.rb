@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :new, :create, :show]
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
