@@ -4,4 +4,11 @@
 	<h4>Rewards for User </h4>
 	<%= reward.project.name %>
 	<%= reward.description %>
-<%end%>
+<% end %>
+	
+	<h4> Total Amount Spent on Pledges</h4>
+	
+<% @user.pledges.each do |pledge| %>
+<%= pledge.reward.backer_limit%>
+
+<% end %>
