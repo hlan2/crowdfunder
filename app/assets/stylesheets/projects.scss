@@ -1,19 +1,112 @@
 
 body {
 	font-family: 'Abel',sans-serif;
-	font-size: 1.5em;
+	font-size: 14px;
 	color: #000;
+	background-color:#f7fafa;
+}
+div {
+	padding-top:10px;
+	padding-left:15px;
+	display: block;
+}
+.new_project {
+	padding-bottom: 20px;
+margin:20px
+
 }
 p {
 	
 }
 h1 {
+	font-weight:normal;
+
+}
+.login-style {
+	padding-left:250px;
+	color: #4CBAD7;
+	font-weight:normal;
+		a {
+		color: #4CBAD7;
+		}
 	
 }
 .red-color {
 	color: red;
 	.and-white {
-		background-color: white;
+	background-color: white;
 	}
 }
+.form-outline {
+	max-width: 400px;
+	margin: auto;
 
+}
+.rounded-content-frame {
+	border-width:1px;
+	border-style:solid;
+	border-radius:6px;
+	background-color:white;
+	border-color:#d9d9de;
+	width:398px;
+	height:auto;
+}
+textarea {
+	border-radius:6px;
+	background: white;
+	border: 1px solid #d9d9de;
+	color: #0f2105;
+	margin:0;
+	padding:6px 5px;
+	-webkit-font-smoothing: antialiased;
+	width:90%;
+
+}
+number {
+	border-radius:6px;
+	background: white;
+	border: 1px solid #d9d9de;
+	color: #0f2105;
+	margin:0;
+	padding:6px 5px;
+	-webkit-font-smoothing: antialiased;
+}
+#project_name, #project_description,  {
+	border-radius:5px;
+	background: white;
+	border: 1px solid #d9d9de;
+	color: #0f2105;
+	margin:0;
+	padding:6px 5px;
+	width:300px;
+	font-size:1.0em;
+	-webkit-font-smoothing: antialiased;
+}
+#project_funding_goal #project_rewards_attributes_0_backer_limit {
+	border-radius:2px;
+	background: white;
+	border: 1px solid #d9d9de;
+	color: #0f2105;
+	margin:0;
+	padding:6px 5px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.actions{
+	font-size:16px;
+	color: #4CBAD7;
+}
+
+.button {
+	font-family: 'Abel',sans-serif;
+	font-size: 14px;
+	margin-top:10px;
+	padding:10px; border:2px solid ; 
+	-webkit-border-radius: 5px;
+	border-radius: 10px;
+	background-color: #2bde73;
+	color: white;
+	font-weight:normal;
+	width:100%;
+
+}
