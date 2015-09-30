@@ -8,7 +8,8 @@
 	
 	<h4> Total Amount Spent on Pledges</h4>
 	
+<% sum = 0 %>
 <% @user.pledges.each do |pledge| %>
-<%= pledge.reward.backer_limit%>
-
+	<% sum += pledge.reward.backer_limit %>
 <% end %>
+Total: <%= sum %>
