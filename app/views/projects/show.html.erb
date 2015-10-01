@@ -2,6 +2,7 @@
 	
 	<%= @project.name %>
 	<%= @project.description %>
+	<%= @project.user.name %>
 	<%= @project.start_at %>
 	<%= @project.end_at %>
 	<% @project.rewards.each do |reward| %>
@@ -11,6 +12,8 @@
 		<%= button_to "Pledge", reward_pledges_path(reward) %>
 	<% end %>
 	
+
+
 	<% if current_user %>
 	<div id="project-owner-box">
 			<% if current_user == @project.user %>
