@@ -1,4 +1,4 @@
-<h1>All Projects</h1>
+<h1>Project show page</h1>
 	
 	<%= @project.name %>
 	<%= @project.description %>
@@ -13,7 +13,7 @@
 	
 	<% if current_user %>
 	<div id="project-owner-box">
-			<% if current_user == @project.user %>
+			<% if is_owner?(@project) %>
 				<p>Current user is project owner!</p>
 				<p>Total amount of money raised for this project:</p>
 				<%= @project.pledges.sum(:backer_limit) %>
@@ -23,17 +23,16 @@
 			<% else %>
 				<h1>Current user is NOT project owner!</h1>
 			<% end %>
+
 	</div>
 	<div id="pledge-display-box">
+		<p><%= current_user.name %>'s pledges on <%= @project.name %></p>
 		<% current_user.pledges.each do |pledge| %>
 			<% if pledge.reward.project.id == @project.id %>
-				<p>User has a pledge on this project!<p>
-				<p>Project name: <%= pledge.reward.project.name %></p>
-				<p>Project description: <%= pledge.reward.project.description %></p>
 				<p>Reward name: <%= pledge.reward.name %></p>
 				<p>Reward description: <%= pledge.reward.description %></p>
 			<% else %>
-				<p>User has no pledges on this project!</p>
+				<!-- <p>User has no pledges on this project!</p> -->
 			<% end %>
 		<% end %>
 	</div>

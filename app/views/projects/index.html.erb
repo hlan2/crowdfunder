@@ -1,4 +1,8 @@
 <h1> Projects Header Page </h1>
 <% @projects.each do |project| %>
+	<% if is_owner?(project) %>
+		<p>You own: <%= project.name %></p>
+	<% else %>
+	<% end %>
 	<%= link_to project.name, project_path(project) %>
 <% end %>

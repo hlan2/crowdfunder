@@ -24,6 +24,11 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@project = Project.find(params[:id])
+		@project.destroy
+	end
+
 	private
 		def project_params
 			params.require(:project).permit(:name, :description, :end_at, :start_at, :funding_goal, rewards_attributes: [:description, :backer_limit])
