@@ -1,6 +1,7 @@
 User.destroy_all
 Project.destroy_all
 Pledge.destroy_all
+Reward.destroy_all
 
 
 10.times do |i|
@@ -53,8 +54,13 @@ User.create!({
 	  :backer_limit => 300,
 	  :project_id => x,
 	})
+end
 
-
+5.times do |c|
+	x = c + 1
+	Category.create!({
+		:category_name => "Category #{x}"
+	})
 end
 
 Pledge.create!({

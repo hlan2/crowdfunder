@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
+		@categories = Category.all
 		3.times { @project.rewards.build }
 	end
 
@@ -31,7 +32,7 @@ class ProjectsController < ApplicationController
 
 	private
 		def project_params
-			params.require(:project).permit(:name, :description, :end_at, :start_at, :funding_goal, rewards_attributes: [:description, :backer_limit])
+			params.require(:project).permit(:name, :description, :end_at, :start_at, :funding_goal, rewards_attributes: [:description, :backer_limit], category_ids: [])
 		end
 
 end

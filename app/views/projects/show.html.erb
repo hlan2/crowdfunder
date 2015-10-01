@@ -4,6 +4,9 @@
 	<%= @project.description %>
 	<%= @project.start_at %>
 	<%= @project.end_at %>
+		<% @project.categories.each do |category| %>
+			<%= category.category_name %>
+		<% end %>
 	<% @project.rewards.each do |reward| %>
 		<%= reward.name %>
 		<%= reward.description %>
@@ -12,19 +15,19 @@
 	<% end %>
 	
 	<% if current_user %>
-	<div id="project-owner-box">
 			<% if is_owner?(@project) %>
-				<p>Current user is project owner!</p>
-				<p>Total amount of money raised for this project:</p>
-				<%= @project.pledges.sum(:backer_limit) %>
+				<div id="project-owner-box">
+					<p>Current user is project owner!</p>
+					<p>Total amount of money raised for this project:</p>
+					<%= @project.pledges.sum(:backer_limit) %>
 
-				<p>Days left until end of project:</p>
-				<%=  distance_of_time_in_words_to_now(@project.end_at) %>
+					<p>Days left until end of project:</p>
+					<%=  distance_of_time_in_words_to_now(@project.end_at) %>
+				</div>
 			<% else %>
-				<h1>Current user is NOT project owner!</h1>
+				<p>Current user is NOT project owner!</p>
 			<% end %>
 
-	</div>
 	<div id="pledge-display-box">
 		<p><%= current_user.name %>'s pledges on <%= @project.name %></p>
 		<% current_user.pledges.each do |pledge| %>
