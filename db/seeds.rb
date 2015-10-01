@@ -22,6 +22,21 @@ User.create!({
 	admin: true,
 	})
 
+3.times do |i|
+	x = i + 1
+	Tag.create!({
+		:name => "Tag #{x}"
+	})
+end
+
+3.times do |i|
+	x = i + 1
+	Tagging.create!({
+		:project_id => x,
+		:tag_id => x
+		})
+end
+
 10.times do |i|
 	x = i + 1
 	Project.create!({

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001185823) do
+ActiveRecord::Schema.define(version: 20151001213005) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "category_name"
@@ -53,6 +53,24 @@ ActiveRecord::Schema.define(version: 20151001185823) do
     t.integer  "backer_limit"
     t.integer  "project_id"
   end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "taggings", ["project_id"], name: "index_taggings_on_project_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name"
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",      null: false

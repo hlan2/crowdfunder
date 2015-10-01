@@ -1,7 +1,13 @@
 class ProjectsController < ApplicationController
 
 	def index
-		@projects = Project.order(end_at: :desc)
+
+		if params[:tag]
+			@projects = Project.tagged_with(params[:tag])
+		else
+			@projects = Project.order(end_at: :desc)
+		end
+
 	end
 
 	def new
@@ -32,7 +38,7 @@ class ProjectsController < ApplicationController
 
 	private
 		def project_params
-			params.require(:project).permit(:name, :description, :end_at, :start_at, :funding_goal, rewards_attributes: [:description, :backer_limit], category_ids: [])
+			params.require(:project).permit(:name, :description, :end_at, :start_at, :funding_goal, rewards_attributes: [:description, :backer_limit], category_ids => [], :all_tags => [])
 		end
 
 end
