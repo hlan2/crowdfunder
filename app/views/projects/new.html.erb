@@ -29,6 +29,12 @@
 		
 	<% end %>
 
+	<h4>Categories</h4>
+	<% @categories.each do |category| %>
+		<%= check_box_tag "project[category_ids][]", category.id, category.id.in?(@project.categories.collect(&:id)) %>
+		<%= category.category_name %>
+	<% end %>
+
  	<div class="actions"><%= f.submit %></div>
  <%end%>
  	

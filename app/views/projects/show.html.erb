@@ -1,10 +1,13 @@
-<h1>All Projects</h1>
+<h1>Project show page</h1>
 	
 	<%= @project.name %>
 	<%= @project.description %>
 	<%= @project.user.name %>
 	<%= @project.start_at %>
 	<%= @project.end_at %>
+		<% @project.categories.each do |category| %>
+			<%= category.category_name %>
+		<% end %>
 	<% @project.rewards.each do |reward| %>
 		<%= reward.name %>
 		<%= reward.description %>
@@ -13,28 +16,27 @@
 	<% end %>
 
 	<% if current_user %>
-	<div id="project-owner-box">
-			<% if current_user == @project.user %>
-				<p>Current user is project owner!</p>
-				<p>Total amount of money raised for this project:</p>
-				<%= @project.pledges.sum(:backer_limit) %>
+			<% if is_owner?(@project) %>
+				<div id="project-owner-box">
+					<p>Current user is project owner!</p>
+					<p>Total amount of money raised for this project:</p>
+					<%= @project.pledges.sum(:backer_limit) %>
 
-				<p>Days left until end of project:</p>
-				<%=  distance_of_time_in_words_to_now(@project.end_at) %>
+					<p>Days left until end of project:</p>
+					<%=  distance_of_time_in_words_to_now(@project.end_at) %>
+				</div>
 			<% else %>
-				<h1>Current user is NOT project owner!</h1>
+				<p>Current user is NOT project owner!</p>
 			<% end %>
-	</div>
+
 	<div id="pledge-display-box">
+		<p><%= current_user.name %>'s pledges on <%= @project.name %></p>
 		<% current_user.pledges.each do |pledge| %>
 			<% if pledge.reward.project.id == @project.id %>
-				<p>User has a pledge on this project!<p>
-				<p>Project name: <%= pledge.reward.project.name %></p>
-				<p>Project description: <%= pledge.reward.project.description %></p>
 				<p>Reward name: <%= pledge.reward.name %></p>
 				<p>Reward description: <%= pledge.reward.description %></p>
 			<% else %>
-				<p>User has no pledges on this project!</p>
+				<!-- <p>User has no pledges on this project!</p> -->
 			<% end %>
 		<% end %>
 	</div>
